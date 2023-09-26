@@ -36,3 +36,14 @@ def get_student_data(message_search):
         return modified_data
 
     return None
+
+
+def get_student_detail(message_search):
+    url = f"https://api-frontend.kemdikbud.go.id/detail_mhs/{message_search}"
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        data = response.json()
+        return data
+
+    return None
