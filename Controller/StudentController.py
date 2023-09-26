@@ -1,5 +1,6 @@
 import requests
 
+
 def get_student_data(message_search):
     url = f"https://api-frontend.kemdikbud.go.id/hit_mhs/{message_search}"
     response = requests.get(url)
@@ -8,7 +9,7 @@ def get_student_data(message_search):
         data = response.json()
 
         if "Cari kata kunci" in data["mahasiswa"][0]["text"]:
-            return None
+            return []
 
         modified_data = {
             "mahasiswa": []
